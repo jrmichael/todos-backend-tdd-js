@@ -1,5 +1,5 @@
 {
-  "name": "example-koa-app",
+  "name": "todos-backend-tdd-js",
   "version": "0.1.0",
   "private": true,
   "scripts": {
