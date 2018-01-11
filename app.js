@@ -12,17 +12,17 @@ onerror(app);
 
 // middlewares
 app.use(bodyparser({
-    enableTypes: ['json']
+  enableTypes: ['json']
 }));
 app.use(json());
 app.use(logger());
 
 // logger
 app.use(async (ctx, next) => {
-    const start = new Date();
-    await next();
-    const ms = new Date() - start;
-    console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
+  const start = new Date();
+  await next();
+  const ms = new Date() - start;
+  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 });
 
 // routes
@@ -30,7 +30,7 @@ app.use(index.routes(), index.allowedMethods());
 
 // error-handling
 app.on('error', (err, ctx) => {
-    console.error('server error', err, ctx)
+  console.error('server error', err, ctx)
 });
 
 module.exports = app;
