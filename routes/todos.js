@@ -4,9 +4,13 @@ const fse = require('fs-extra');
 module.exports = function (resourcesDir) {
   const router = require('koa-router')();
 
-  router.get('/todos/test-resource.json', async (ctx, next) => {
+  router.get('/todos/test-resource', (ctx, next) => {
 
-    ctx.body = await fse.readJson(path.resolve(resourcesDir, 'test-resource.json'))
+    return fse.readJson(path.resolve(resourcesDir, 'test-resource.json'))
+      .then(content => {
+        ctx.body = content;
+        next();
+      });
 
   });
 

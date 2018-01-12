@@ -1,5 +1,7 @@
 const path = require('path');
-const app = require('./app')(path.resolve(__dirname, 'test', 'resources'));
+const resourcesDir = path.resolve(__dirname, 'test', 'resources');
+const app = require('./app')(resourcesDir);
+Object.defineProperty(window, 'resourcesDir', {value: resourcesDir});
 
 let server;
 
